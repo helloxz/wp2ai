@@ -34,7 +34,7 @@ services:
         # ports:
         #     - '2080:2080'
         restart: always
-        image: 'pub.tcp.mk/helloz/wp2ai:dev-20250228'
+        image: 'pub.tcp.mk/helloz/wp2ai:dev-2025022818'
 ```
 
 注意上面使用了HOST网络模式，安装完毕后您需要在防火墙或安全组放行`2080`端口。
