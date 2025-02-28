@@ -1,0 +1,10 @@
+version: '3'
+services:
+    wp2ai:
+        container_name: wp2ai
+        volumes:
+            - '/opt/wp2ai/data:/opt/wp2ai/data'
+        ports:
+            - '2080:2080'
+        restart: always
+        image: 'pub.tcp.mk/helloz/wp2ai'

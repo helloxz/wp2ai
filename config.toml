@@ -1,0 +1,30 @@
+[app]
+chat_limit = '10'
+doc_limit = '5'
+
+[auth]
+email = ''
+password = ''
+token = ''
+username = ''
+
+[embedding]
+key = ''
+model = ''
+url = ''
+
+[openai]
+key = ''
+model = ''
+url = ''
+
+[server]
+mode = 'release'
+port = 2080
+
+[wordpress]
+db_host = ''
+db_name = ''
+db_password = ''
+db_username = ''
+domain = ''
