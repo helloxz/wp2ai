@@ -4,15 +4,15 @@ WP2AI可以将您的WordPress文章变成智能知识库，并通过AI智能匹�
 
 ### 功能特点
 
-[x] 扫描WordPress文章
-[x] 向量化WordPress文章数据
-[x] AI问答搜索
-[x] 后台管理
-[x] API接口
-[] WordPress插件
-[] 自动翻译文章 
+- [x] 扫描WordPress文章
+- [x] 向量化WordPress文章数据
+- [x] AI问答搜索
+- [x] 后台管理
+- [x] API接口
+- [] WordPress插件（用于自动添加、更新、删除文章索引）
+- [] 后台文章管理支持状态分类和重试
+- [] 自动翻译文章 
 
-> 内容越垂直，结果越精准！
 
 ### 适用场景
 
@@ -48,6 +48,7 @@ services:
         #     - '2080:2080'
         restart: always
         image: 'pub.tcp.mk/helloz/wp2ai:dev-2025022818'
+        restart: always
 ```
 
 注意上面使用了HOST网络模式，安装完毕后您需要在防火墙或安全组放行`2080`端口。
