@@ -1,9 +1,7 @@
 name: Build and push Docker image with CGO
 
 on:
-  push:
-    branches:
-      - main # 或者您的主分支名称
+  workflow_dispatch: # 手动触发 workflow
 
 jobs:
   build:

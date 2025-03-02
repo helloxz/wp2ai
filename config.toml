@@ -1,6 +1,7 @@
 [app]
 chat_limit = '10'
 doc_limit = '5'
+min_process = 15
 
 [auth]
 email = ''

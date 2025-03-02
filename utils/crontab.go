@@ -3,6 +3,7 @@ package utils
 import (
 	"fmt"
 	"strconv"
+	"time"
 	"wp2ai/model"
 
 	"github.com/go-resty/resty/v2"
@@ -26,8 +27,10 @@ func InitCrontab() {
 
 // 每次获取10条数据
 func Vectorization() {
+	minProcess := viper.GetInt("app.min_process")
+	// fmt.Println("minProcess:", minProcess)
 	// 获取文章数据
-	posts := model.GetPosts(10)
+	posts := model.GetPosts(minProcess)
 	// 如果没有数据，则直接返回
 	if len(posts) == 0 {
 		return
@@ -49,6 +52,7 @@ func Vectorization() {
 	// 遍历wpPosts，然后做向量化处理
 	for _, wpPost := range wpPosts {
 		go SingleVectorization(wpPost)
+		time.Sleep(time.Millisecond * 500) // 休眠 0.5 秒，避免并发过高
 	}
 }
 
