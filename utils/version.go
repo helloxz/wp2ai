@@ -1,4 +1,4 @@
 package utils
 
-var Version = "1.0.0"
-var VersionDate = "2025022818"
+var Version = "1.0.1"
+var VersionDate = "20250303"

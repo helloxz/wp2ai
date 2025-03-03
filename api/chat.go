@@ -84,6 +84,7 @@ func Chat(c *gin.Context) {
 	}
 	// 查询出匹配的数据
 	results, err := model.GetDocument(embedding)
+
 	// 写入日志
 	utils.WriteLog(fmt.Sprintf("GetDocument error: %v", err))
 	// 如果出现错误
@@ -101,7 +102,7 @@ func Chat(c *gin.Context) {
 	var messages []openai.ChatCompletionMessage
 	messages = append(messages, openai.ChatCompletionMessage{
 		Role:    openai.ChatMessageRoleSystem,
-		Content: "你是一名AI助手，以下是一些资料，你需要先理解并掌握。然后根据掌握的资料来回答问题，如果用户的问题不再资料中，你需要拒绝回答。",
+		Content: "你是一名AI助手，名字叫WP2AI，以下是一些资料，你需要先理解并掌握。然后根据掌握的资料来回答问题，如果用户的问题不在资料中，你需要拒绝回答。",
 	})
 	// 引用结果
 	quotes := "  \n  \n> **引用内容：**  \n "
@@ -116,6 +117,8 @@ func Chat(c *gin.Context) {
 			break
 		}
 	}
+	// 部分向量模型数值原因，暂时停用这个功能
+	allDistancesLarge = false
 
 	// 如果所有allDistancesLarge都大于1.0，则去掉results最后2行
 	if allDistancesLarge {
@@ -125,7 +128,7 @@ func Chat(c *gin.Context) {
 	domain := viper.GetString("wordpress.domain")
 
 	for index, result := range results {
-		fmt.Println(result.Distance)
+		// fmt.Println(result.Distance)
 		// 添加前缀
 		prefix := fmt.Sprintf("资料%d：", index+1)
 		// 添加到messages中
