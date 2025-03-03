@@ -92,7 +92,7 @@ docker run -d \
   helloz/wp2ai
 ```
 
-
+> 注意：如果您无法从Docker拉取镜像，可以使用我们提供的镜像加速地址：`pub.tcp.mk/helloz/wp2ai`
 
 ### 使用
 
