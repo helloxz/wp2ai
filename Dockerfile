@@ -1,5 +1,5 @@
 FROM debian:12-slim
-RUN mkdir -p /opt/wp2ai/data && apt-get update && apt-get -y install curl && rm -rf /var/lib/apt/lists/*
+RUN mkdir -p /opt/wp2ai/data && apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 WORKDIR /opt/wp2ai
 COPY wp2ai config.toml /opt/wp2ai/
 COPY assets /opt/wp2ai/assets
