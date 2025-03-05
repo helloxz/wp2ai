@@ -18,6 +18,8 @@ func Index(c *gin.Context) {
 
 // 批量扫描WordPress中的文章ID，然后入库
 func BatchScan(c *gin.Context) {
+	// 再次初始化一次
+	model.InitWPDB()
 	// 获取现有行数
 	count := model.CountPosts(-1)
 	// 如果行数大于0，说明已经扫描过了，不需要再扫描
